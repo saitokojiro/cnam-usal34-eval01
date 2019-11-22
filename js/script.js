@@ -4,6 +4,10 @@
   let buttonA = document.querySelector(".button-a");
   // on stock dans un variable le bouton qui a pour class : .button-b;
   let buttonB = document.querySelector(".button-b");
+
+
+
+  let affichage = document.querySelector("#affichage")
   // on stock dans un variable qui a pour nom KeycodeB et qui prend pour valeur 65;
   let keyCodeA = 65;
   // on stock dans un variable qui a pour nom KeycodeB et qui prend pour valeur 66;
@@ -36,10 +40,30 @@
       pressOnB();
     }
   });
- // "keydown"(detection lorsque l'on une presse pas une touche )
+  // "keydown"(detection lorsque l'on une presse pas une touche )
   document.addEventListener("keydown", e => {
     // ajoute la class "pressed" si la condition est remplie  
-    if (e.keyCode === keyCodeA) buttonA.classList.add("pressed");
-    if (e.keyCode === keyCodeB) buttonB.classList.add("pressed");
+    if (e.keyCode === keyCodeA) {
+
+      buttonA.classList.add("pressed")
+
+      // crée une variable pressedA qui a pour contenu un nouvelle element p et l'ajoute un text 
+      let pressedA = document.createElement('p');
+      pressedA.innerHTML = " je presse sur : A";
+      let retour = document.createElement('br');
+
+      // insert l'objet au parent qui est #affichage 
+      affichage.append(pressedA);
+
+    };
+    if (e.keyCode === keyCodeB) {
+      buttonB.classList.add("pressed")
+
+      let pressedB = document.createElement('p');
+      pressedB.innerHTML = " je presse sur : B"
+      
+      affichage.append(pressedB);
+
+    };
   });
 })();
