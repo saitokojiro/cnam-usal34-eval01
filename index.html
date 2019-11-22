@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>cnam-usal34-eval01</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      href="https://unpkg.com/nes.css@2.2.1/css/nes.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="controller">
+      <div class="inner-frame">
+        <div class="arrow-pad">
+          <div class="inner-pad shadow"></div>
+          <div class="inner-pad">
+            <div class="arrow arrow-left"></div>
+            <div class="arrow arrow-right"></div>
+            <div class="arrow arrow-up"></div>
+            <div class="arrow arrow-down"></div>
+          </div>
+        </div>
+        <div class="center">
+          <div class="square square-1"></div>
+          <div class="square square-2"></div>
+          <div class="square square-3">
+            <div class="select">select</div>
+            <div class="start">start</div>
+          </div>
+          <div class="square square-4">
+            <div class="button select-button"></div>
+            <div class="button start-button"></div>
+          </div>
+          <div class="square square-5"></div>
+        </div>
+        <div class="ab-pad">
+          <div class="pad pad-b">
+            <div class="button button-b"></div>
+          </div>
+          <div class="pad pad-a">
+            <div class="button button-a"></div>
+          </div>
+          <div class="nintendo-logo">Nintendo</div>
+        </div>
+      </div>
+      <div class="cable"></div>
+    </div>
+    <div class="prompt-container">
+      <div class="nes-container">
+        <div id="affichage"><p>Hello</p></div>
+      </div>
+    </div>
+    <script>
+      const countdown=(e,t=3)=>setTimeout(()=>{const c=document.createElement("p");c.appendChild(document.createTextNode(t.toString())),document.querySelectorAll("#affichage p").length>=5&&document.querySelector("#affichage").removeChild(document.querySelector("#affichage").firstChild),document.querySelector("#affichage").appendChild(c),t>1&&countdown(e,t-1)},1e3);
+    </script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
