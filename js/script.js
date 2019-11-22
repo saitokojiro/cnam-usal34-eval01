@@ -21,7 +21,7 @@
 
   /*
     On crée une event sur le document qui aura pour parametre 
-    "keyup"(detection lorsque l'on une presse pas une touche ),et "e" pour event
+    "keyup"(detection lorsque l'on une presse pas une touche ), et "e" pour event
   */
   document.addEventListener("keyup", e => {
     // ajoute la class "pressed" si la condition est remplie 
