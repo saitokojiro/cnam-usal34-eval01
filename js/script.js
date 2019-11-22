@@ -38,7 +38,7 @@
   });
  // "keydown"(detection lorsque l'on une presse pas une touche )
   document.addEventListener("keydown", e => {
-    // ajoute la class "pressed" si la condition est remplie 
+    // ajoute la class "pressed" si la condition est remplie  
     if (e.keyCode === keyCodeA) buttonA.classList.add("pressed");
     if (e.keyCode === keyCodeB) buttonB.classList.add("pressed");
   });
