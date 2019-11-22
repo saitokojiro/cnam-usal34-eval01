@@ -5,13 +5,16 @@
   // on stock dans un variable le bouton qui a pour class : .button-b;
   let buttonB = document.querySelector(".button-b");
 
-
+  //let pLength = document.querySelectorAll("#affichage p")
 
   let affichage = document.querySelector("#affichage")
   // on stock dans un variable qui a pour nom KeycodeB et qui prend pour valeur 65;
   let keyCodeA = 65;
   // on stock dans un variable qui a pour nom KeycodeB et qui prend pour valeur 66;
   let keyCodeB = 66;
+
+
+  
 
   // pressOnA qui est une fonction qui contient un console.log et qui a pour qui a la valeur la lettre A;
   function pressOnA() {
@@ -22,6 +25,27 @@
   function pressOnB() {
     console.log("B");
   }
+
+  function removeHistory() 
+  {
+
+    let pLength = document.querySelector("#affichage").querySelectorAll("p")
+    const arrays = pLength[0];
+
+    console.log(pLength.length)
+
+    
+    pLength.forEach(() => {
+      if(pLength.length > 5){
+        console.log('ok')
+        affichage.removeChild(pLength[0])
+      }
+    });
+  
+    //pLength[1].style.backgroundColor = "red";
+    
+  }
+  ;
 
   /*
     On crée une event sur le document qui aura pour parametre 
@@ -54,6 +78,8 @@
 
       // insert l'objet au parent qui est #affichage 
       affichage.append(pressedA);
+      
+      removeHistory()
 
     };
     if (e.keyCode === keyCodeB) {
@@ -63,6 +89,7 @@
       pressedB.innerHTML = " je presse sur : B"
       
       affichage.append(pressedB);
+      removeHistory()
 
     };
   });
