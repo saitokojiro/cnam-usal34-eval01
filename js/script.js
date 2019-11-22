@@ -13,42 +13,83 @@
   // on stock dans un variable qui a pour nom KeycodeB et qui prend pour valeur 66;
   let keyCodeB = 66;
 
+  //let keyCodeflecheDroite = 39;
 
-  
+  let btnStart = document.querySelector(".start-button")
+  let nesConter = document.querySelector(".nes-container")
+  //let flecheDroite = document.querySelector(".arrow-right")
+
+
+
 
   // pressOnA qui est une fonction qui contient un console.log et qui a pour qui a la valeur la lettre A;
-  function pressOnA() {
+  function pressOn() {
     console.log("A");
   }
+
+  /*function pressflecheDroite() {
+    console.log("->");
+  }*/
 
   // pressOnA qui est une fonction qui contient un console.log et qui a pour qui a la valeur la lettre B;
   function pressOnB() {
     console.log("B");
   }
 
-  function removeHistory() 
-  {
+  function removeHistory() {
 
     let pLength = document.querySelector("#affichage").querySelectorAll("p")
     const arrays = pLength[0];
 
     console.log(pLength.length)
 
-    
+
     pLength.forEach(() => {
-      if(pLength.length > 5){
+      if (pLength.length > 5) {
         console.log('ok')
         affichage.removeChild(pLength[0])
       }
     });
-  
+
     //pLength[1].style.backgroundColor = "red";
-    
-  }
-  ;
+
+  };
+
+
+
+  btnStart.addEventListener("click", () => {
+    console.log('ok')
+    nesConter.classList.add("is-dark");
+    countdown()
+
+  })
+
+/*
+  document.addEventListener("keydown", e => {
+
+    if (e.keyCode === keyCodeflecheDroite) {
+      let arrowLeftKD = document.createElement('p');
+      arrowLeftKD.innerHTML = " je press sur : ->";
+      // insert l'objet au parent qui est #affichage 
+      affichage.append(arrowLeftKD);
+      removeHistory()
+
+    }
+
+  })
+  flecheDroite.addEventListener("click", () => {
+
+    let arrowLeftCL = document.createElement('p');
+      arrowLeftCL.innerHTML = " je click sur : ->";
+      // insert l'objet au parent qui est #affichage 
+      affichage.append(arrowLeftCL);
+      removeHistory()
+  })
+*/
 
   /*
-    On crée une event sur le document qui aura pour parametre 
+    On crée une ev
+    ent sur le document qui aura pour parametre 
     "keyup"(detection lorsque l'on une presse pas une touche ), et "e" pour event
   */
   document.addEventListener("keyup", e => {
@@ -74,11 +115,11 @@
       // crée une variable pressedA qui a pour contenu un nouvelle element p et l'ajoute un text 
       let pressedA = document.createElement('p');
       pressedA.innerHTML = " je presse sur : A";
-      let retour = document.createElement('br');
+      
 
       // insert l'objet au parent qui est #affichage 
       affichage.append(pressedA);
-      
+
       removeHistory()
 
     };
@@ -87,7 +128,7 @@
 
       let pressedB = document.createElement('p');
       pressedB.innerHTML = " je presse sur : B"
-      
+
       affichage.append(pressedB);
       removeHistory()
 
