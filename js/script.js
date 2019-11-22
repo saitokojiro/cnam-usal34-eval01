@@ -13,11 +13,11 @@
   // on stock dans un variable qui a pour nom KeycodeB et qui prend pour valeur 66;
   let keyCodeB = 66;
 
-  //let keyCodeflecheDroite = 39;
+  let keyCodeflecheDroite = 39;
 
   let btnStart = document.querySelector(".start-button")
   let nesConter = document.querySelector(".nes-container")
-  //let flecheDroite = document.querySelector(".arrow-right")
+  let flecheDroite = document.querySelector(".arrow-right")
 
 
 
@@ -27,9 +27,9 @@
     console.log("A");
   }
 
-  /*function pressflecheDroite() {
+  function pressflecheDroite() {
     console.log("->");
-  }*/
+  }
 
   // pressOnA qui est une fonction qui contient un console.log et qui a pour qui a la valeur la lettre B;
   function pressOnB() {
@@ -64,7 +64,7 @@
 
   })
 
-/*
+
   document.addEventListener("keydown", e => {
 
     if (e.keyCode === keyCodeflecheDroite) {
@@ -85,7 +85,7 @@
       affichage.append(arrowLeftCL);
       removeHistory()
   })
-*/
+
 
   /*
     On crée une ev
