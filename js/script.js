@@ -1,5 +1,6 @@
 (() => {
 
+//#region variable
   // on stock dans un variable le bouton qui a pour class : .button-a;
   let buttonA = document.querySelector(".button-a");
   // on stock dans un variable le bouton qui a pour class : .button-b;
@@ -15,89 +16,107 @@
 
   let keyCodeflecheDroite = 39;
 
-  let btnStart = document.querySelector(".start-button")
-  let nesConter = document.querySelector(".nes-container")
-  let flecheDroite = document.querySelector(".arrow-right")
+  let btnStart = document.querySelector(".start-button");
+  let nesConter = document.querySelector(".nes-container");
+  let flecheDroite = document.querySelector(".arrow-right");
 
+//#endregion
 
-
-
+//#region pressA
   // pressOnA qui est une fonction qui contient un console.log et qui a pour qui a la valeur la lettre A;
-  function pressOn() {
-    console.log("A");
+  const pressOnA = () => {
+   return console.log("A");
   }
 
-  function pressflecheDroite() {
-    console.log("->");
-  }
+//#endregion
+
+//#region pressB
 
   // pressOnA qui est une fonction qui contient un console.log et qui a pour qui a la valeur la lettre B;
-  function pressOnB() {
+  const pressOnB = () => {
     console.log("B");
   }
 
-  function removeHistory() {
+//#endregion
 
+//#region pressFlecheDroite
+const pressflecheDroite = () => {
+  console.log("->");
+}
+//#endregion
+
+//#region arrowDirection
+  let arrowDirection = (arrow) => 
+  {   
+      let arrowLeft = document.createElement('p');
+      
+        arrowLeft.innerHTML = " je "+arrow+" sur : ->";
+        // insert l'objet au parent qui est #affichage 
+        affichage.append(arrowLeft);
+     
+      
+  }
+//#endregion
+
+//#region CreateEl
+let CreateEl = (A) => 
+{
+  let pressed = document.createElement('p');    
+    pressed.innerHTML = " je presse sur : " + A;
+    // insert l'objet au parent qui est #affichage 
+    affichage.append(pressed);  
+}
+
+//#endregion
+
+//#region removeHistory
+  let removeHistory = () => {    
     let pLength = document.querySelector("#affichage").querySelectorAll("p")
-    const arrays = pLength[0];
 
     console.log(pLength.length)
-
-
     pLength.forEach(() => {
       if (pLength.length > 5) {
         console.log('ok')
         affichage.removeChild(pLength[0])
       }
     });
-
-    //pLength[1].style.backgroundColor = "red";
-
   };
 
+//#endregion
 
-
+//#region btnStart
   btnStart.addEventListener("click", () => {
     console.log('ok')
     nesConter.classList.add("is-dark");
     countdown()
-
   })
+//#endregion
 
-
+//#region flechedroites
   document.addEventListener("keydown", e => {
-
     if (e.keyCode === keyCodeflecheDroite) {
-      let arrowLeftKD = document.createElement('p');
-      arrowLeftKD.innerHTML = " je press sur : ->";
-      // insert l'objet au parent qui est #affichage 
-      affichage.append(arrowLeftKD);
+      arrowDirection('press')
       removeHistory()
-
     }
-
   })
+
   flecheDroite.addEventListener("click", () => {
-
-    let arrowLeftCL = document.createElement('p');
-      arrowLeftCL.innerHTML = " je click sur : ->";
-      // insert l'objet au parent qui est #affichage 
-      affichage.append(arrowLeftCL);
-      removeHistory()
+    arrowDirection('click')
+    removeHistory()
   })
+//#endregion
 
-
+//#region buttonABup
   /*
-    On crée une ev
-    ent sur le document qui aura pour parametre 
+    On crée une event sur le document qui aura pour parametre 
     "keyup"(detection lorsque l'on une presse pas une touche ), et "e" pour event
-  */
+  */ 
   document.addEventListener("keyup", e => {
     // ajoute la class "pressed" si la condition est remplie 
     //( keyCode permet de récuperé la valeur de la touche présser)
     if (e.keyCode === keyCodeA) {
       buttonA.classList.remove("pressed");
-      pressOnA();
+      pressOnA();      
     }
 
     if (e.keyCode === keyCodeB) {
@@ -105,33 +124,24 @@
       pressOnB();
     }
   });
+//#endregion 
+
+//#region buttonABdown
   // "keydown"(detection lorsque l'on une presse pas une touche )
   document.addEventListener("keydown", e => {
     // ajoute la class "pressed" si la condition est remplie  
     if (e.keyCode === keyCodeA) {
-
       buttonA.classList.add("pressed")
-
       // crée une variable pressedA qui a pour contenu un nouvelle element p et l'ajoute un text 
-      let pressedA = document.createElement('p');
-      pressedA.innerHTML = " je presse sur : A";
-      
-
-      // insert l'objet au parent qui est #affichage 
-      affichage.append(pressedA);
-
+      CreateEl('A')
       removeHistory()
-
     };
     if (e.keyCode === keyCodeB) {
       buttonB.classList.add("pressed")
-
-      let pressedB = document.createElement('p');
-      pressedB.innerHTML = " je presse sur : B"
-
-      affichage.append(pressedB);
+      CreateEl('B')
       removeHistory()
-
     };
   });
+//#endregion
+
 })();
